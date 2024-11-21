@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "Kiểm duyệt nội dung trò chuyện trực tiếp với AI tạo sinh trên AWS"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Mở thông báo"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Lịch sử Thông báo"
+    },
+    "STATUS": {
+      "EMPTY": "Chưa có thông báo nào."
+    },
+    "ACTIONS": {
+      "CLOSE": "Đóng thông báo"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "TRỰC TIẾP"
+    }
+  }
+}

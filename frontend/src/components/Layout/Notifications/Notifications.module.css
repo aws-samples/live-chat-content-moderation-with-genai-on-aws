@@ -1,0 +1,80 @@
+.notificationsPanel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.notificationsHeader {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  background: linear-gradient(90deg, #9370db, #add8e6, #90ee90);
+  color: #161d26;
+  padding: 1rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #161d26;
+  transition: color 0.2s ease;
+}
+
+.notificationsList {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.notificationItem {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-shadow: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.notificationItem:last-child {
+  border-bottom: none;
+}
+
+.notificationItem p {
+  margin-bottom: 0.5rem;
+}
+
+.notificationItem small {
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .notificationsPanel {
+    width: 100%;
+  }
+
+  .notificationsHeader {
+    font-size: 1.4rem;
+  }
+}

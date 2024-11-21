@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "Moderasi Konten Obrolan Langsung dengan AI generatif di AWS"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Buka notifikasi"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Riwayat Notifikasi"
+    },
+    "STATUS": {
+      "EMPTY": "Belum ada notifikasi."
+    },
+    "ACTIONS": {
+      "CLOSE": "Tutup notifikasi"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "LANGSUNG"
+    }
+  }
+}

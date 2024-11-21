@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "Live-Chat-Inhaltsmoderation mit generativer KI auf AWS"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Benachrichtigungen öffnen"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Benachrichtigungsverlauf"
+    },
+    "STATUS": {
+      "EMPTY": "Noch keine Benachrichtigungen."
+    },
+    "ACTIONS": {
+      "CLOSE": "Benachrichtigungen schließen"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "LIVE"
+    }
+  }
+}

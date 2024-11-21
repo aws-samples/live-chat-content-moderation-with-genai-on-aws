@@ -1,0 +1,50 @@
+type Message {
+  messageId: ID!
+  userId: ID!
+  userName: String!
+  userMessage: String!
+  timestamp: AWSDateTime!
+  bedrockResponse: String
+  modelId: String
+}
+
+input MessageInput {
+  messageId: ID!
+  userId: ID!
+  userName: String!
+  userMessage: String!
+  timestamp: AWSDateTime!
+  bedrockResponse: String
+  modelId: String
+}
+
+type Notification {
+  userId: ID!
+  userMessage: String!
+}
+
+input NotificationInput {
+  userId: ID!
+  userMessage: String!
+}
+
+type Mutation {
+  broadcastMessage(message: MessageInput!): Message!
+  sendNotification(message: MessageInput!): Notification!
+}
+
+type Subscription {
+  onBroadcastMessage: Message @aws_subscribe(mutations: ["broadcastMessage"])
+  onReceiveNotification(userId: ID!): Notification
+    @aws_subscribe(mutations: ["sendNotification"])
+}
+
+type Query {
+  getDummyData: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

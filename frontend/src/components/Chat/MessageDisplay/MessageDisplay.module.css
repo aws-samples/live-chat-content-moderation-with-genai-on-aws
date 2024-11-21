@@ -1,0 +1,72 @@
+.messageList {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageItem {
+  background-color: #f1f0f0;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  max-width: 80%;
+  border: 1px solid #d4d4d4;
+  align-self: flex-start;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.messageItem.userMessage {
+  background-color: #d7f5e7;
+  border: 1px solid #b8e6d2;
+  align-self: flex-end;
+}
+
+.messageContent {
+  margin-bottom: 0.25rem;
+}
+
+.messageTimestamp {
+  font-size: 0.75rem;
+  color: #777;
+  text-align: right;
+}
+
+.notificationItem {
+  background-color: #ffe6e6;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  max-width: 80%;
+  align-self: flex-end;
+  border: 1px solid #ffcccc;
+}
+
+.notificationContent {
+  color: #d32f2f;
+  font-style: italic;
+}
+
+.messageList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messageList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.messageList::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.messageList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 768px) {
+  .messageItem {
+    max-width: 90%;
+  }
+}

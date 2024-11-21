@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "Live Chat Content Moderation with generative AI on AWS"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Open notifications"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Notification History"
+    },
+    "STATUS": {
+      "EMPTY": "No notifications yet."
+    },
+    "ACTIONS": {
+      "CLOSE": "Close notifications"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "LIVE"
+    }
+  }
+}

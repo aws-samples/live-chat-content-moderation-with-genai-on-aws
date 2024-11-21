@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "使用 AWS 上的生成式 AI 进行实时聊天内容审核"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "打开通知"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "通知历史"
+    },
+    "STATUS": {
+      "EMPTY": "暂无通知。"
+    },
+    "ACTIONS": {
+      "CLOSE": "关闭通知"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "直播"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.videoPlayerWrapper {
+  flex: 2;
+  margin-right: 1rem;
+  position: relative;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.liveBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #dc3545;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  animation: blink 2s linear infinite;
+  z-index: 10;
+}
+
+.awsIcon {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+}
+
+.guidelineText {
+  padding: 10px;
+  color: #333;
+  white-space: pre-line;
+  margin-bottom: 60px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.customToast {
+  background-color: #f0f4c3 !important;
+}
+
+.customToastBody {
+  color: #8d6e63 !important;
+  font-style: italic !important;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+
+  .videoPlayerWrapper {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    flex: 0 0 auto;
+    min-height: 300px;
+  }
+
+  .chatWrapper {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  .awsIcon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoPlayerWrapper {
+    min-height: auto;
+  }
+}

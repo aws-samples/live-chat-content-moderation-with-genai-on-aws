@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "AWS에서 생성 AI를 활용한 라이브 채팅 콘텐츠 조정"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "알림 열기"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "알림 기록"
+    },
+    "STATUS": {
+      "EMPTY": "아직 알림이 없습니다."
+    },
+    "ACTIONS": {
+      "CLOSE": "알림 닫기"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "실시간"
+    }
+  }
+}

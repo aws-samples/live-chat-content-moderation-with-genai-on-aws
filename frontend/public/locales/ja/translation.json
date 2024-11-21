@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "AWS で生成 AI を使用したライブチャット コンテンツ モデレーション"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "通知を開く"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "通知履歴"
+    },
+    "STATUS": {
+      "EMPTY": "通知はまだありません。"
+    },
+    "ACTIONS": {
+      "CLOSE": "通知を閉じる"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "ライブ"
+    }
+  }
+}

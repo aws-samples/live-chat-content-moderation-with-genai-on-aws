@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "Moderação de conteúdo de chat ao vivo com IA generativa na AWS"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Abrir notificações"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Histórico de Notificações"
+    },
+    "STATUS": {
+      "EMPTY": "Nenhuma notificação ainda."
+    },
+    "ACTIONS": {
+      "CLOSE": "Fechar notificações"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "AO VIVO"
+    }
+  }
+}

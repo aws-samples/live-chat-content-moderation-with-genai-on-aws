@@ -1,0 +1,27 @@
+.videoPlayerWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoContainer {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  position: relative;
+}
+
+.videoPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .videoPlayerWrapper {
+    min-height: 200px;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "AWS पर जनरेटिव AI के साथ लाइव चैट कंटेंट मॉडरेशन"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "सूचनाएँ खोलें"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "सूचना इतिहास"
+    },
+    "STATUS": {
+      "EMPTY": "अभी तक कोई सूचना नहीं।"
+    },
+    "ACTIONS": {
+      "CLOSE": "सूचनाएँ बंद करें"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "लाइव"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "NAVBAR": {
+    "TEXT": {
+      "TITLE": "AWS'de üretken yapay zeka ile Canlı Sohbet İçerik Denetimi"
+    },
+    "ACTIONS": {
+      "OPEN_NOTIFICATIONS": "Bildirimleri aç"
+    }
+  },
+  "NOTIFICATIONS": {
+    "TEXT": {
+      "TITLE": "Bildirim Geçmişi"
+    },
+    "STATUS": {
+      "EMPTY": "Henüz bildirim yok."
+    },
+    "ACTIONS": {
+      "CLOSE": "Bildirimleri kapat"
+    }
+  },
+  "MAIN_PAGE": {
+    "BADGES": {
+      "LIVE": "CANLI"
+    }
+  }
+}
