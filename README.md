@@ -104,9 +104,9 @@ Each model has its own strengths and characteristics. You can switch between the
 
 - AWS Account;
 - AWS CLI configured with your credentials with permissions configured;
-- [Node.js installed (version 20.x or later) in your system][https://nodejs.org/en/download/package-manager];
+- [Node.js installed (version 20.x or later) in your system](https://nodejs.org/en/download/package-manager);
 - Appropriate permissions to install npm packages in your system;
-- [Git installed in your system][https://git-scm.com/downloads];
+- [Git installed in your system](https://git-scm.com/downloads);
 - [jq installed in your system](https://jqlang.github.io/jq/download/).
 
 ## Deployment
