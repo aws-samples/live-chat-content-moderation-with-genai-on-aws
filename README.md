@@ -265,7 +265,16 @@ The project includes a CloudWatch dashboard for monitoring key metrics:
 - Lambda function metrics;
 - API Gateway request counts.
 
-Access the dashboard in the CloudWatch console under "ChatModeration-Monitoring".
+Access the dashboard named "ChatModeration-Monitoring" in the Amazon CloudWatch console.
+You can also add a service trace map to the CloudWatch dashboard by doing the following steps: 
+
+1. Access the X-Ray Trace Map in CloudWatch:
+  a. Open the CloudWatch console.
+  b. In the left navigation pane, under the X-Ray Traces section, select Trace Map.
+2. Add the Service Map to the CloudWatch Dashboard:
+  a. Within the Trace Map view, click on the Actions menu.
+  b. Choose Add to dashboard.
+  c. Select the dashboard named "ChatModeration-Monitoring".
 
 ## Performance and Scalability
 
