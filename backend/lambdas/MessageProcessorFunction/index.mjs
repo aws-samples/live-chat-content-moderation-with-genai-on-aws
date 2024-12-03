@@ -175,6 +175,47 @@ const invokeModelWithRetry = async (
   }
 };
 
+const createMessageInput = (message) => ({
+  messageId: message.messageId,
+  userId: message.userId,
+  userName: message.userName,
+  userMessage: message.userMessage,
+  timestamp: message.timestamp,
+  bedrockResponse: message.bedrockResponse,
+  modelId: message.modelId,
+});
+
+const executeGraphQLOperation = async (operationType, message, mutation) => {
+  try {
+    const result = await makeHttpRequest(
+      GRAPHQL_API_ENDPOINT,
+      {
+        method: "POST",
+        headers: {
+          "x-api-key": APPSYNC_API_KEY,
+        },
+      },
+      {
+        query: mutation,
+        variables: { message: createMessageInput(message) },
+      }
+    );
+
+    if (result.errors) {
+      console.error(
+        `[ERROR] GraphQL errors in ${operationType}:`,
+        JSON.stringify(result.errors, null, 2)
+      );
+      throw new Error(`[ERROR] Failed to ${operationType}`);
+    }
+
+    return result.data[operationType];
+  } catch (error) {
+    console.error(`[ERROR] Error in ${operationType}:`, error);
+    throw error;
+  }
+};
+
 const broadcastMessage = async (message) => {
   const mutation = `
     mutation BroadcastMessage($message: MessageInput!) {
@@ -189,45 +230,7 @@ const broadcastMessage = async (message) => {
     }
   `;
 
-  const variables = {
-    message: {
-      messageId: message.messageId,
-      userId: message.userId,
-      userName: message.userName,
-      userMessage: message.userMessage,
-      timestamp: message.timestamp,
-      modelId: message.modelId,
-    },
-  };
-
-  try {
-    const result = await makeHttpRequest(
-      GRAPHQL_API_ENDPOINT,
-      {
-        method: "POST",
-        headers: {
-          "x-api-key": APPSYNC_API_KEY,
-        },
-      },
-      {
-        query: mutation,
-        variables: { message },
-      }
-    );
-
-    if (result.errors) {
-      console.error(
-        "[ERROR] GraphQL errors:",
-        JSON.stringify(result.errors, null, 2)
-      );
-      throw new Error("[ERROR] Failed to broadcast message");
-    }
-
-    return result.data.broadcastMessage;
-  } catch (error) {
-    console.error("[ERROR] Error broadcasting message:", error);
-    throw error;
-  }
+  return executeGraphQLOperation("broadcastMessage", message, mutation);
 };
 
 const sendNotification = async (message) => {
@@ -242,46 +245,7 @@ const sendNotification = async (message) => {
     }
   `;
 
-  const variables = {
-    message: {
-      messageId: message.messageId,
-      userId: message.userId,
-      userName: message.userName,
-      userMessage: notificationMessage,
-      timestamp: message.timestamp,
-      bedrockResponse: message.bedrockResponse,
-      modelId: message.modelId,
-    },
-  };
-
-  try {
-    const result = await makeHttpRequest(
-      GRAPHQL_API_ENDPOINT,
-      {
-        method: "POST",
-        headers: {
-          "x-api-key": APPSYNC_API_KEY,
-        },
-      },
-      {
-        query: mutation,
-        variables: { message },
-      }
-    );
-
-    if (result.errors) {
-      console.error(
-        "[ERROR] GraphQL errors:",
-        JSON.stringify(result.errors, null, 2)
-      );
-      throw new Error("[ERROR] Failed to send notification");
-    }
-
-    return result.data.sendNotification;
-  } catch (error) {
-    console.error("[ERROR] Error sending notification:", error);
-    throw error;
-  }
+  return executeGraphQLOperation("sendNotification", message, mutation);
 };
 
 const handleBroadcastMessage = async (message) => {
