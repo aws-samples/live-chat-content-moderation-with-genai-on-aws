@@ -383,7 +383,7 @@ export class Api extends cdk.NestedStack {
       this,
       "MessageProcessorFunction",
       {
-        functionName: "ChatModeration-MessageProcessorFunction",
+        functionName: "ChatModeration-MessageProcessor",
         entry: path.join(
           __dirname,
           "../..",
@@ -400,6 +400,7 @@ export class Api extends cdk.NestedStack {
           minify: true,
           sourceMap: true,
           target: "es2020",
+          format: nodejs.OutputFormat.ESM,
           mainFields: ["module", "main"],
           esbuildArgs: {
             "--tree-shaking": "true",

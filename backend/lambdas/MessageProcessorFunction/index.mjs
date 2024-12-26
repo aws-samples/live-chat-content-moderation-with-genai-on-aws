@@ -1,16 +1,12 @@
-import {
-  CloudWatchClient,
-  PutMetricDataCommand,
-} from "@aws-sdk/client-cloudwatch";
-const cloudwatch = new CloudWatchClient();
+import { CloudWatchClient, PutMetricDataCommand } from "@aws-sdk/client-cloudwatch";
 import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import {
-  BedrockRuntimeClient,
-  ConverseCommand,
-} from "@aws-sdk/client-bedrock-runtime";
+import { BedrockRuntimeClient, ConverseCommand } from "@aws-sdk/client-bedrock-runtime";
 import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
+import { createRequire } from "module";
+const cloudwatch = new CloudWatchClient();
+const require = createRequire(import.meta.url);
 const https = require("https");
 const URL = require("url").URL;
 

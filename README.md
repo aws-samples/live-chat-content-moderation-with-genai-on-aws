@@ -330,6 +330,7 @@ To delete all resources associated with the Live Chat Moderation system:
 1. Destroy the CDK stack:
 
    ```
+   cd backend/cdk
    cdk destroy
    ```
 
