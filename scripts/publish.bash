@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Store the path to the cdk-outputs.json file
-CDK_OUTPUTS_FILE="../backend/cdk/cdk-outputs.json"
+CDK_OUTPUTS_FILE="backend/cdk/cdk-outputs.json"
   
 # Get the stack name from the cdk-outputs.json file
 STACK_NAME=$(jq -r 'keys[0]' "$CDK_OUTPUTS_FILE")
@@ -24,7 +24,7 @@ YELLOW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-REACT_PROJECT_DIR="../frontend"
+REACT_PROJECT_DIR="frontend"
 
 # Function to check the last command's status
 check_status() {
