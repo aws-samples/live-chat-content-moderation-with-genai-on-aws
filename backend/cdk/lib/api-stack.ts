@@ -306,8 +306,7 @@ export class Api extends cdk.NestedStack {
                 `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.titan-text-premier-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/anthropic.claude-3-haiku-20240307-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/meta.llama3-8b-instruct-v1:0`,
-                `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-lite-v1:0`,
-                `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-pro-v1:0`,
+                `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-micro-v1:0`
               ],
             }),
           ],

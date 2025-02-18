@@ -10,8 +10,7 @@ STACK_NAME=$(jq -r 'keys[0]' "$CDK_OUTPUTS_FILE")
 TITAN_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.TitanModelUUID' "$CDK_OUTPUTS_FILE")
 HAIKU_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.HaikuModelUUID' "$CDK_OUTPUTS_FILE")
 LLAMA_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.LlamaModelUUID' "$CDK_OUTPUTS_FILE")
-NOVA_LITE_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.NovaLiteModelUUID' "$CDK_OUTPUTS_FILE")
-NOVA_PRO_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.NovaProModelUUID' "$CDK_OUTPUTS_FILE")
+NOVA_MICRO_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.NovaMicroModelUUID' "$CDK_OUTPUTS_FILE")
 PROMPT_SWITCH_PARAMETER_NAME=$(jq -r '.'"$STACK_NAME"'.PromptSwitchParameterName' "$CDK_OUTPUTS_FILE")
 
 # Color variables
@@ -38,14 +37,11 @@ case "$1" in
   llama)
     NEW_ACTIVE_MODEL="$LLAMA_MODEL_UUID"
     ;;
-  nova-lite)
-    NEW_ACTIVE_MODEL="$NOVA_LITE_MODEL_UUID"
-    ;;
-  nova-pro)
-    NEW_ACTIVE_MODEL="$NOVA_PRO_MODEL_UUID"
+  nova-micro)
+    NEW_ACTIVE_MODEL="$NOVA_MICRO_MODEL_UUID"
     ;;
   *)
-    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, llama, nova-lite, or nova-pro."
+    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, llama or nova-micro."
     exit 1
     ;;
 esac
