@@ -90,13 +90,15 @@ For a more accurate cost estimate, use the AWS Pricing Calculator and input your
 
 ### Supported AI Models
 
-The system supports three different AI models for chat moderation:
+The system supports four different AI models for chat moderation:
 
 1. **Anthropic Claude Haiku**: Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.
 
 2. **Amazon Titan**: Amazon Titan Text Premier is an advanced, high-performance, and cost-effective LLM engineered to deliver superior performance for enterprise-grade text generation applications, including optimized performance for retrieval-augmented generation (RAG) and Agents.
 
 3. **Meta Llama**: Meta Llama 3 is an accessible, open large language model (LLM) designed for developers, researchers, and businesses to build, experiment, and responsibly scale their generative AI ideas. Part of a foundational system, it serves as a bedrock for innovation in the global community. Ideal for limited computational power and resources, edge devices, and faster training times.
+
+4. **Amazon Nova Micro**: Amazon Nova family of models offer customers multiple price performance operating points to best optimize between accuracy, speed, and cost. Amazon Nova Micro is a text only model that delivers the lowest latency responses at the lowest cost per inference among Nova family.
 
 Each model has its own strengths and characteristics. You can switch between these models using the `prompt-switch.bash` script.
 
@@ -222,7 +224,7 @@ To switch between different AI models or prompts:
 ./prompt-switch.bash <model-name>
 ```
 
-Replace `<model-name>` with one of the available options: `titan`, `haiku`, or `llama`. The aforementioned `./install.bash` script configures Anthropic Claude Haiku to be used by default.
+Replace `<model-name>` with one of the available options: `titan`, `haiku`, `llama` or `nova-micro`. The aforementioned `./install.bash` script configures Anthropic Claude Haiku to be used by default.
 
 ### Updating the Front-End
 
@@ -233,6 +235,10 @@ After making changes to the front-end code, deploy updates using:
 ```
 
 This script will build the React application and update the S3 bucket and CloudFront distribution. This is not required at the first deployment.
+
+### Scripts Usage
+
+The scripts should be executed from the `./scripts` directory. Running from another path may cause issues or the scripts may fail.
 
 ### Moderation Guidelines
 

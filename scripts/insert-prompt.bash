@@ -2,7 +2,7 @@
 
 # Check if an argument is provided
 if [ -z "$1" ]; then
-  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, or llama) as an argument."
+  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, llama or nova-micro) as an argument."
   exit 1
 fi
 
@@ -51,8 +51,16 @@ case "$1" in
     TEMPERATURE=0
     TOP_P=0
     ;;
+  nova-micro)
+    MODEL_ID="amazon.nova-micro-v1:0"
+    MODEL_NAME="Amazon Nova Micro"
+    MODEL_OUTPUT_KEY="NovaMicroModelUUID"
+    MAX_TOKENS=256
+    TEMPERATURE=0
+    TOP_P=0
+    ;;
   *)
-    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, or llama."
+    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, llama or nova-micro."
     exit 1
     ;;
 esac

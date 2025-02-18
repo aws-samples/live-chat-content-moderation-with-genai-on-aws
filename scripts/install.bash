@@ -147,7 +147,9 @@ update_and_run_scripts() {
     run_script ./insert-prompt.bash haiku
     
     run_script ./insert-prompt.bash llama
-    
+
+    run_script ./insert-prompt.bash nova-micro
+
     run_script ./prompt-switch.bash haiku
     
     run_script ./publish.bash
