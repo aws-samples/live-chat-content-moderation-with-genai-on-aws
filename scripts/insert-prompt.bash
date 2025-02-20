@@ -36,7 +36,7 @@ case "$1" in
     TOP_P=0
     ;;
   haiku)
-    MODEL_ID="anthropic.claude-3-haiku-20240307-v1:0"
+    MODEL_ID="anthropic.claude-3-5-haiku-20241022-v1:0"
     MODEL_NAME="Anthropic Claude Haiku"
     MODEL_OUTPUT_KEY="HaikuModelUUID"
     MAX_TOKENS=256

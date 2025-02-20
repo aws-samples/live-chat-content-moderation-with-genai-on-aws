@@ -304,7 +304,7 @@ export class Api extends cdk.NestedStack {
               actions: ["bedrock:ListFoundationModels", "bedrock:InvokeModel"],
               resources: [
                 `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.titan-text-premier-v1:0`,
-                `arn:aws:bedrock:${this.region}:*:foundation-model/anthropic.claude-3-haiku-20240307-v1:0`,
+                `arn:aws:bedrock:${this.region}:*:foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/meta.llama3-8b-instruct-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-micro-v1:0`
               ],
