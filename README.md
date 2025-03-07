@@ -198,7 +198,7 @@ After installation, the application should be accessible via the CloudFront URL 
 
 - A normal, non-offensive message: "Hello, how is everyone doing today?"
 - A message containing mild profanity: "This stream is damn good!"
-- A message with hate speech or discrimination: "I hate people [directed message]"
+- A message with hate speech or discrimination: "I hate [directed message]"
 
 3. Observe the behavior:
 
