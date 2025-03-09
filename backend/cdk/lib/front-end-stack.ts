@@ -2,11 +2,16 @@ import * as cdk from "aws-cdk-lib";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as iam from "aws-cdk-lib/aws-iam";
-import * as waf from "aws-cdk-lib/aws-wafv2";
 import { Construct } from "constructs";
 
 interface FrontEndProps extends cdk.NestedStackProps {
   stackName: string;
+  webAclArn: string;
+  crossRegionReferences: boolean;
+  env?: {
+    region?: string;
+    account?: string;
+  };
 }
 
 export class FrontEnd extends cdk.NestedStack {
@@ -54,36 +59,6 @@ export class FrontEnd extends cdk.NestedStack {
       enforceSSL: true,
       autoDeleteObjects: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-
-    // CloudFront WAF WebACL
-    const webAcl = new waf.CfnWebACL(this, "ChatModeration-CloudFrontWAF", {
-      name: "ChatModeration-CloudFrontWAF",
-      scope: "CLOUDFRONT",
-      defaultAction: { allow: {} },
-      visibilityConfig: {
-        cloudWatchMetricsEnabled: true,
-        metricName: "ChatModeration-CloudFrontWAF",
-        sampledRequestsEnabled: true,
-      },
-      rules: [
-        {
-          name: "LimitRequests100",
-          priority: 1,
-          action: { block: {} },
-          visibilityConfig: {
-            cloudWatchMetricsEnabled: true,
-            metricName: "LimitRequests100",
-            sampledRequestsEnabled: true,
-          },
-          statement: {
-            rateBasedStatement: {
-              limit: 100,
-              aggregateKeyType: "IP",
-            },
-          },
-        },
-      ],
     });
 
     // CloudFront Distribution for Front-End Static Assets
@@ -136,7 +111,7 @@ export class FrontEnd extends cdk.NestedStack {
             prefix: "cloudfront-logs/",
             includeCookies: false,
           },
-          webAclId: webAcl.attrArn,
+          webAclId: props.webAclArn,
         },
       }
     );

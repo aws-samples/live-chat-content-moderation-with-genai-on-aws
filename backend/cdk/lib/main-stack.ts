@@ -1,12 +1,19 @@
 import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
 import { Database } from "./database-stack";
 import { Guardrail } from "./guardrail-stack";
 import { PromptSwitch } from "./prompt-switch-stack";
 import { Api } from "./api-stack";
+import { Waf } from './waf-stack';
 import { FrontEnd } from "./front-end-stack";
 import { Observability } from "./observability-stack";
 
-export interface MainStackProps extends cdk.StackProps {}
+export interface MainStackProps extends cdk.StackProps {
+  env?: {
+    region?: string;
+    account?: string;
+  };
+}
 
 export class MainStack extends cdk.Stack {
   public readonly approvedMessagesTableName: string;
@@ -25,8 +32,11 @@ export class MainStack extends cdk.Stack {
   public readonly cloudFrontDistributionId: string;
   public readonly cloudFrontDistributionDomain: string;
 
-  public constructor(scope: cdk.App, id: string, props: MainStackProps = {}) {
-    super(scope, id, props);
+  constructor(scope: Construct, id: string, props?: MainStackProps) {
+    super(scope, id, {
+      ...props,
+      crossRegionReferences: true,
+    });
 
     // Database Nested Stack
     const database = new Database(this, "Database", {
@@ -55,9 +65,20 @@ export class MainStack extends cdk.Stack {
       promptSwitchParameterName: promptSwitch.promptSwitchParameterName,
     });
 
+    // WAF Nested Stack in us-east-1
+    const wafStack = new Waf(this, 'Waf', {
+      stackName: "Waf",
+      crossRegionReferences: true,
+      env: {
+        account: this.account,
+      },
+    });
+
     // Front-End Nested Stack
     const frontEnd = new FrontEnd(this, "FrontEnd", {
       stackName: "FrontEnd",
+      webAclArn: wafStack.webAclArn,
+      crossRegionReferences: true,
     });
 
     // Observability Stack

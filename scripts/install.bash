@@ -119,7 +119,7 @@ deploy_cdk_stack() {
     
     echo -e "\n${BLUE}[INFO] CDK Output:${NC}"
     # Run 'cdk deploy' command
-    cdk deploy --require-approval never --outputs-file "$CDK_OUTPUTS_FILE"
+    cdk deploy --all --require-approval never --outputs-file "$CDK_OUTPUTS_FILE"
     if [ $? -ne 0 ]; then
         echo -e "\n${RED}[ERROR] CDK deployment failed. Aborting.${NC}"
         exit 1
