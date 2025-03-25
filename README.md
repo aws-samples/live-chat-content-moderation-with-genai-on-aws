@@ -224,7 +224,7 @@ To switch between different AI models or prompts:
 ./prompt-switch.bash <model-name>
 ```
 
-Replace `<model-name>` with one of the available options: `titan`, `haiku`, `llama` or `nova-micro`. The aforementioned `./install.bash` script configures Anthropic Claude Haiku to be used by default.
+Replace `<model-name>` with one of the available options: `titan`, `haiku`, `haiku-3.5`, `llama` or `nova-micro`. The aforementioned `./install.bash` script configures Anthropic Claude Haiku to be used by default.
 
 ### Updating the Front-End
 
@@ -337,7 +337,7 @@ To delete all resources associated with the Live Chat Moderation system:
 
    ```
    cd backend/cdk
-   cdk destroy
+   cdk destroy --all
    ```
 
 ## Next Steps
