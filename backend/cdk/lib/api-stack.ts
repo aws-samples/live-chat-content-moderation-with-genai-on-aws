@@ -301,12 +301,21 @@ export class Api extends cdk.NestedStack {
           statements: [
             new iam.PolicyStatement({
               effect: iam.Effect.ALLOW,
-              actions: ["bedrock:ListFoundationModels", "bedrock:InvokeModel"],
+              actions: [
+                "bedrock:ListFoundationModels",
+                "bedrock:InvokeModel",
+                "bedrock:GetInferenceProfile",
+                "bedrock:ListInferenceProfiles"
+              ],
               resources: [
                 `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.titan-text-premier-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/anthropic.claude-3-haiku-20240307-v1:0`,
                 `arn:aws:bedrock:${this.region}:*:foundation-model/meta.llama3-8b-instruct-v1:0`,
-                `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-micro-v1:0`
+                `arn:aws:bedrock:${this.region}:*:foundation-model/amazon.nova-micro-v1:0`,
+                // first '*' used instead of ${this.region} to allow internal cross-region inference
+                // second '*' used before [model-id] to include both [model-id] and [region].[model-id]
+                `arn:aws:bedrock:*:*:foundation-model/*anthropic.claude-3-5-haiku-20241022-v1:0`,
+                `arn:aws:bedrock:*:*:inference-profile/*anthropic.claude-3-5-haiku-20241022-v1:0`,
               ],
             }),
           ],

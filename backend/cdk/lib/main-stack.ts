@@ -65,7 +65,7 @@ export class MainStack extends cdk.Stack {
       promptSwitchParameterName: promptSwitch.promptSwitchParameterName,
     });
 
-    // WAF Nested Stack in us-east-1
+    // WAF Stack in us-east-1
     const wafStack = new Waf(this, 'Waf', {
       stackName: "Waf",
       crossRegionReferences: true,
@@ -85,6 +85,7 @@ export class MainStack extends cdk.Stack {
     const bedrockModels = [
       "amazon.titan-text-premier-v1:0",
       "anthropic.claude-3-haiku-20240307-v1:0",
+      "anthropic.claude-3-5-haiku-20241022-v1:0",
       "meta.llama3-8b-instruct-v1:0",
       "amazon.nova-micro-v1:0"
     ];

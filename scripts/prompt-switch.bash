@@ -9,6 +9,7 @@ STACK_NAME=$(jq -r 'keys[0]' "$CDK_OUTPUTS_FILE")
 # Extract and export the necessary values
 TITAN_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.TitanModelUUID' "$CDK_OUTPUTS_FILE")
 HAIKU_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.HaikuModelUUID' "$CDK_OUTPUTS_FILE")
+HAIKU35_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.Haiku35ModelUUID' "$CDK_OUTPUTS_FILE")
 LLAMA_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.LlamaModelUUID' "$CDK_OUTPUTS_FILE")
 NOVA_MICRO_MODEL_UUID=$(jq -r '.'"$STACK_NAME"'.NovaMicroModelUUID' "$CDK_OUTPUTS_FILE")
 PROMPT_SWITCH_PARAMETER_NAME=$(jq -r '.'"$STACK_NAME"'.PromptSwitchParameterName' "$CDK_OUTPUTS_FILE")
@@ -22,7 +23,7 @@ NC='\033[0m' # No Color
 
 # Check if an argument is provided
 if [ -z "$1" ]; then
-  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, or llama) as an argument."
+  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, haiku-3.5, llama or nova-micro) as an argument."
   exit 1
 fi
 
@@ -33,6 +34,9 @@ case "$1" in
     ;;
   haiku)
     NEW_ACTIVE_MODEL="$HAIKU_MODEL_UUID"
+    ;;
+  haiku-3.5)
+    NEW_ACTIVE_MODEL="$HAIKU35_MODEL_UUID"
     ;;
   llama)
     NEW_ACTIVE_MODEL="$LLAMA_MODEL_UUID"

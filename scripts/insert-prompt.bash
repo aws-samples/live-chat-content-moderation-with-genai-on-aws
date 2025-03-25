@@ -2,7 +2,7 @@
 
 # Check if an argument is provided
 if [ -z "$1" ]; then
-  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, llama or nova-micro) as an argument."
+  echo -e "\n${RED}[ERROR] Please provide a model name (titan, haiku, haiku-3.5, llama or nova-micro) as an argument."
   exit 1
 fi
 
@@ -37,8 +37,16 @@ case "$1" in
     ;;
   haiku)
     MODEL_ID="anthropic.claude-3-haiku-20240307-v1:0"
-    MODEL_NAME="Anthropic Claude Haiku"
+    MODEL_NAME="Anthropic Claude Haiku 3"
     MODEL_OUTPUT_KEY="HaikuModelUUID"
+    MAX_TOKENS=256
+    TEMPERATURE=0
+    TOP_P=0
+    ;;
+  haiku-3.5)
+    MODEL_ID="us.anthropic.claude-3-5-haiku-20241022-v1:0"
+    MODEL_NAME="Anthropic Claude Haiku 3.5"
+    MODEL_OUTPUT_KEY="Haiku35ModelUUID"
     MAX_TOKENS=256
     TEMPERATURE=0
     TOP_P=0
@@ -60,7 +68,7 @@ case "$1" in
     TOP_P=0
     ;;
   *)
-    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, llama or nova-micro."
+    echo -e "\n${RED}[ERROR] Invalid model name provided. Please use titan, haiku, haiku-3.5, llama or nova-micro."
     exit 1
     ;;
 esac

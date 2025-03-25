@@ -145,6 +145,8 @@ update_and_run_scripts() {
     run_script ./insert-prompt.bash titan
     
     run_script ./insert-prompt.bash haiku
+
+    run_script ./insert-prompt.bash haiku-3.5
     
     run_script ./insert-prompt.bash llama
 
